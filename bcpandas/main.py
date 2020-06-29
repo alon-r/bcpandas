@@ -99,7 +99,8 @@ class SqlCreds:
         conn_string = f"mssql+pyodbc:///?odbc_connect={quote_plus(db_url)}"
         self.engine = sa.engine.create_engine(conn_string)
 
-        logger.info(f"Created engine for sqlalchemy:\t{self.engine}")
+        # don't print password to logs!
+        # logger.info(f"Created engine for sqlalchemy:\t{self.engine}")
 
     @classmethod
     def from_engine(cls, engine: sa.engine.base.Engine) -> "SqlCreds":
@@ -194,8 +195,7 @@ def to_sql(
     if_exists: str = "fail",
     batch_size: int = None,
     debug: bool = False,
-    bcp_path: str = None,
-    delim:str = None
+    bcp_path: str = None
 ):
     """
     Writes the pandas DataFrame to a SQL table or view.
@@ -249,7 +249,7 @@ def to_sql(
     if index:
         df = df.copy(deep=True).reset_index()
 
-    delim = delim or get_delimiter(df)
+    delim = get_delimiter(df)
     quotechar = get_quotechar(df)
 
     if batch_size is not None:

@@ -36,7 +36,7 @@ IF_EXISTS_OPTIONS = ("append", "replace", "fail")
 
 # Text settings
 _DELIMITER_OPTIONS = (",", "|", "\t")
-_QUOTECHAR_OPTIONS = ('"', "'", "`", "~")
+_QUOTECHAR_OPTIONS = ('"', "'", "`", "~", "±")
 NEWLINE = os.linesep
 
 # settings for both BCP and pandas.read_csv for reading from SQL
