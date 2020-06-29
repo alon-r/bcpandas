@@ -195,6 +195,7 @@ def to_sql(
     batch_size: int = None,
     debug: bool = False,
     bcp_path: str = None,
+    delim:str = None
 ):
     """
     Writes the pandas DataFrame to a SQL table or view.
@@ -248,7 +249,7 @@ def to_sql(
     if index:
         df = df.copy(deep=True).reset_index()
 
-    delim = get_delimiter(df)
+    delim = delim or get_delimiter(df)
     quotechar = get_quotechar(df)
 
     if batch_size is not None:
