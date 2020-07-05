@@ -199,7 +199,8 @@ def to_sql(
     debug: bool = False,
     bcp_path: str = None,
     dtypes: dict = None,
-    keys: list = None
+    keys: list = None,
+    error_path: str = None
 ):
     """
     Writes the pandas DataFrame to a SQL table or view.
@@ -240,6 +241,8 @@ def to_sql(
         Dictionary with key as column name value as sqlalchemy data type
     keys: list, default None
         List of columns that define the primary key
+    error_path: str, default None
+        Path for bcp error file
     """
     # validation
     if df.shape[0] == 0 or df.shape[1] == 0:
@@ -358,6 +361,7 @@ def to_sql(
             schema=schema,
             batch_size=batch_size,
             bcp_path=bcp_path,
+            error_file_path=f'{error_path}/{table_name}_bcp_error.txt'
         )
     finally:
         if not debug:

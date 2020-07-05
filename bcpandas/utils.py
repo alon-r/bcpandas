@@ -49,6 +49,7 @@ def bcp(
     col_delimiter: str = None,
     row_terminator: str = None,
     bcp_path: Union[str, Path] = None,
+    error_file_path: str = None
 ):
     """
     See https://docs.microsoft.com/en-us/sql/tools/bcp-utility
@@ -89,6 +90,8 @@ def bcp(
         "-d",
         creds.database,
         "-q",  # Executes the SET QUOTED_IDENTIFIERS ON statement, needed for Azure SQL DW
+        "-e",
+        error_file_path
     ] + auth
 
     if batch_size:
