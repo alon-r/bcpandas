@@ -282,7 +282,7 @@ def to_sql(
         quoting=csv.QUOTE_NONE,  # csv.QUOTE_MINIMAL,  # pandas default
         quotechar='',  # quotechar
         line_terminator=NEWLINE,
-        # doublequote=True,
+        doublequote=True
         # escapechar=None,  # not needed, as using doublequote
         # escapechar='\\',
     )
