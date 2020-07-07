@@ -279,11 +279,12 @@ def to_sql(
         sep=delim,
         header=False,
         index=False,  # already set as new col earlier if index=True
-        quoting=csv.QUOTE_MINIMAL,  # pandas default
-        quotechar=quotechar,
+        quoting=csv.QUOTE_NONE,  # csv.QUOTE_MINIMAL,  # pandas default
+        quotechar='',  # quotechar
         line_terminator=NEWLINE,
-        doublequote=True,
-        escapechar=None,  # not needed, as using doublequote
+        # doublequote=True,
+        # escapechar=None,  # not needed, as using doublequote
+        escapechar='\\',
     )
     logger.debug(f"Saved dataframe to temp CSV file at {csv_file_path}")
 
