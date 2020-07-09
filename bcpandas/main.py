@@ -279,8 +279,8 @@ def to_sql(
         sep=delim,
         header=False,
         index=False,  # already set as new col earlier if index=True
-        quoting=csv.QUOTE_NONE,  # csv.QUOTE_MINIMAL,  # pandas default
-        quotechar='',  # quotechar
+        quoting=csv.QUOTE_MINIMAL,  # pandas default
+        quotechar='"',  # quotechar
         line_terminator=NEWLINE,
         # escapechar=None,  # not needed, as using doublequote
         escapechar='\\'

@@ -37,8 +37,7 @@ IF_EXISTS_OPTIONS = ("append", "replace", "fail")
 # Text settings
 _DELIMITER_OPTIONS = (",", "|", "\t")
 _QUOTECHAR_OPTIONS = ('"', "'", "`", "~", "±")
-# NEWLINE = os.linesep
-NEWLINE = '¬'
+NEWLINE = os.linesep
 
 # settings for both BCP and pandas.read_csv for reading from SQL
 # delimiter should be characters that NEVER appear in the source data in SQL, have to guess a good one
