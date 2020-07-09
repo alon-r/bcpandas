@@ -283,7 +283,7 @@ def to_sql(
         quotechar='"',  # quotechar
         line_terminator=NEWLINE,
         # escapechar=None,  # not needed, as using doublequote
-        escapechar='\\'
+        # escapechar='\\'
     )
     logger.debug(f"Saved dataframe to temp CSV file at {csv_file_path}")
 
