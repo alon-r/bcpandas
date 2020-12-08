@@ -261,7 +261,7 @@ def to_sql(
         df = df.copy(deep=True).reset_index()
 
     delim = get_delimiter(df)
-    quotechar = get_quotechar(df)
+    # quotechar = get_quotechar(df)
 
     if batch_size is not None:
         if batch_size == 0:
